@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrhexa.c                                    :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 16:26:31 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 16:44:12 by ehode            ###   ########.fr       */
+/*   Created: 2025/10/16 13:18:26 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/02 20:55:06 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbrhexa(int fd, unsigned int v, int in_lowercase, int *count)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	const char	hexa_lowercase[] = "0123456789abcdef";
-	const char	hexa_uppercase[] = "0123456789ABCDEF";
+	t_list	*current_lst;
+	t_list	*temp_lst;
 
-	if (v > 15)
-		ft_putnbrhexa(fd, v / 16, in_lowercase, count);
-	if (in_lowercase)
-		ft_putchar(fd, ((char *)hexa_lowercase)[v % 16], count);
-	else
-		ft_putchar(fd, ((char *)hexa_uppercase)[v % 16], count);
+	if (!lst)
+		return ;
+	current_lst = *lst;
+	while (current_lst)
+	{
+		temp_lst = current_lst;
+		current_lst = current_lst->next;
+		if (del)
+			del(temp_lst->content);
+		free(temp_lst);
+	}
+	*lst = NULL;
 }

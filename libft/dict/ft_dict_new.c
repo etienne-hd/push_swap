@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_dict_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 13:54:42 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/25 21:02:10 by ehode            ###   ########.fr       */
+/*   Created: 2025/11/02 05:58:18 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/02 07:59:12 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(int c)
+#include "libft.h"
+
+t_dict	*ft_dict_new(void)
 {
-	return ((c >= 9 && c <= 13) || c == 32);
+	t_dict	*dict;
+
+	dict = malloc(sizeof(t_dict));
+	if (!dict)
+		return (NULL);
+	dict->entry = NULL;
+	dict->size = 0;
+	return (dict);
 }

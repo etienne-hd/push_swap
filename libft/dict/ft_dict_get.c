@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrhexa.c                                    :+:      :+:    :+:   */
+/*   ft_dict_get.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 16:26:31 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 16:44:12 by ehode            ###   ########.fr       */
+/*   Created: 2025/11/02 06:07:52 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/02 07:59:27 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbrhexa(int fd, unsigned int v, int in_lowercase, int *count)
+void	*ft_dict_get(t_dict *dict, const char *key)
 {
-	const char	hexa_lowercase[] = "0123456789abcdef";
-	const char	hexa_uppercase[] = "0123456789ABCDEF";
+	t_dict_node	*node;
 
-	if (v > 15)
-		ft_putnbrhexa(fd, v / 16, in_lowercase, count);
-	if (in_lowercase)
-		ft_putchar(fd, ((char *)hexa_lowercase)[v % 16], count);
-	else
-		ft_putchar(fd, ((char *)hexa_uppercase)[v % 16], count);
+	node = ft_dict_get_node(dict, key);
+	if (node)
+		return (node->value);
+	return (NULL);
 }

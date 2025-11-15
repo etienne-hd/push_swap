@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_dict_get_node.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 13:13:45 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/16 18:48:33 by ehode            ###   ########.fr       */
+/*   Created: 2025/11/02 06:05:52 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/02 07:59:23 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_dict_node	*ft_dict_get_node(t_dict *dict, const char *key)
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	t_dict_node	*node;
+
+	node = dict->entry;
+	while (node)
+	{
+		if (!ft_strcmp(node->key, key))
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
 }

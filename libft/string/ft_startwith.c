@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrhexa.c                                    :+:      :+:    :+:   */
+/*   ft_startwith.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 16:26:31 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 16:44:12 by ehode            ###   ########.fr       */
+/*   Created: 2025/11/01 16:17:34 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/01 17:52:15 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbrhexa(int fd, unsigned int v, int in_lowercase, int *count)
+int	ft_startwith(char *str, char *start)
 {
-	const char	hexa_lowercase[] = "0123456789abcdef";
-	const char	hexa_uppercase[] = "0123456789ABCDEF";
+	size_t	i;
 
-	if (v > 15)
-		ft_putnbrhexa(fd, v / 16, in_lowercase, count);
-	if (in_lowercase)
-		ft_putchar(fd, ((char *)hexa_lowercase)[v % 16], count);
-	else
-		ft_putchar(fd, ((char *)hexa_uppercase)[v % 16], count);
+	if (!str || !start)
+		return (0);
+	i = 0;
+	while (str[i] == start[i] && str[i])
+		i++;
+	return (start[i] == '\0');
 }
