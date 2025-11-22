@@ -6,11 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 17:03:44 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/30 21:15:19 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/22 17:35:25 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+#include <stdlib.h>
 
 t_stack	*stack_new(int length, char id)
 {

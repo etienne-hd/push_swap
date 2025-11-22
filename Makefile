@@ -1,23 +1,23 @@
 CC=cc
 NAME = push_swap
-SRC_DIR = srcs/
+SRC_DIR = src/
 SRCS = $(SRC_DIR)push_swap.c \
 		$(SRC_DIR)parser.c \
-		$(SRC_DIR)stack.c \
-		$(SRC_DIR)stack_swap.c \
-		$(SRC_DIR)stack_push.c \
-		$(SRC_DIR)stack_display.c \
-		$(SRC_DIR)stack_utils.c \
-		$(SRC_DIR)stack_rotate.c \
-		$(SRC_DIR)stack_reverse_rotate.c \
-		$(SRC_DIR)solver.c \
-		$(SRC_DIR)solver_utils.c
+		$(SRC_DIR)stack/stack.c \
+		$(SRC_DIR)stack/stack_display.c \
+		$(SRC_DIR)stack/stack_utils.c \
+		$(SRC_DIR)stack/instruction/stack_swap.c \
+		$(SRC_DIR)stack/instruction/stack_push.c \
+		$(SRC_DIR)stack/instruction/stack_rotate.c \
+		$(SRC_DIR)stack/instruction/stack_reverse_rotate.c \
+		$(SRC_DIR)solver/solver.c \
+		$(SRC_DIR)solver/solver_utils.c
 
-OBJ_DIR = objs/
+OBJ_DIR = .build/
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 LIBFT = ./libft/libft.a
 
-CFLAGS = -Wall -Wextra -Werror -I includes -I libft -I libft/ft_printf/includes
+CFLAGS = -Wall -Wextra -Werror -I include -I libft -I libft/ft_printf/includes
 LDFLAGS = $(LIBFT)
 
 all:$(NAME)
@@ -27,6 +27,9 @@ $(NAME): $(OBJS) $(LIBFT)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)stack/
+	@mkdir -p $(OBJ_DIR)stack/instruction
+	@mkdir -p $(OBJ_DIR)solver/
 	$(CC) $(CFLAGS) $< -c -o $@
 
 $(LIBFT):

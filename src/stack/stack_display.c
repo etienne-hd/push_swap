@@ -6,11 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 17:27:06 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/30 21:20:06 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/22 17:35:16 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+#include "ft_printf.h"
 
 void	stacks_show(t_stack *stack_a, t_stack *stack_b)
 {

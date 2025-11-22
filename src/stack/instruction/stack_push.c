@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 15:59:38 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 23:37:54 by ehode            ###   ########.fr       */
+/*   Created: 2025/10/25 18:57:30 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/22 17:34:56 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+void	stack_px(t_stack *stack_dst, t_stack *stack_src)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int	tmp;
 
-	if (argc == 1)
-		return (0);
-	parse(argc, argv, &stack_a, &stack_b);
-	if (!stack_a || !stack_b)
-		return (1);
-	if (stack_a->size > 1 && !stack_is_solved(stack_a))
-		solve(stack_a, stack_b);
-	stack_destroy(&stack_a);
-	stack_destroy(&stack_b);
+	if (stack_src->len == 0)
+		return ;
+	ft_printf("p%c\n", stack_dst->id);
+	tmp = stack_src->values[stack_src->len - 1];
+	stack_dst->values[stack_dst->len] = tmp;
+	stack_src->len--;
+	stack_dst->len++;
 }

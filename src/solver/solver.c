@@ -6,11 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:45:49 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 23:39:15 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/22 17:44:31 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+#include "instruction.h"
+#include "solver.h"
+#include <stddef.h>
 
 static void	rotate_to_top(t_stack *stack, size_t index)
 {
@@ -20,9 +23,9 @@ static void	rotate_to_top(t_stack *stack, size_t index)
 	while (value != stack->values[stack->len - 1])
 	{
 		if (index + 1 > stack->len / 2)
-			stack_r(stack);
+			stack_rx(stack);
 		else
-			stack_revr(stack);
+			stack_rrx(stack);
 	}
 }
 
@@ -46,11 +49,11 @@ static void	sort_three_number(t_stack *stack)
 	if ((low_i == 2 && big_i == 0) || (stack->len != 3))
 		return ;
 	if (low_i == 0 && big_i != 2)
-		stack_revr(stack);
+		stack_rrx(stack);
 	else if (big_i == 2)
-		stack_r(stack);
+		stack_rx(stack);
 	else
-		stack_s(stack);
+		stack_sx(stack);
 	sort_three_number(stack);
 }
 
@@ -115,7 +118,7 @@ void	solve(t_stack *stack_a, t_stack *stack_b)
 		rotate_to_top(stack_b, best_index);
 		target_i = get_target_index(stack_a, stack_b->values[stack_b->len - 1]);
 		rotate_to_top(stack_a, target_i);
-		stack_p(stack_a, stack_b);
+		stack_px(stack_a, stack_b);
 	}
 	min_value = get_min_number_index(stack_a);
 	rotate_to_top(stack_a, min_value);

@@ -6,16 +6,18 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 22:25:35 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/30 00:58:39 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/22 17:32:04 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+#include "instruction.h"
+#include <stddef.h>
 
 void	push_until_three(t_stack *stack_a, t_stack *stack_b)
 {
 	while (stack_a->len > 3)
-		stack_p(stack_b, stack_a);
+		stack_px(stack_b, stack_a);
 }
 
 int	get_cost(size_t index, t_stack *stack)

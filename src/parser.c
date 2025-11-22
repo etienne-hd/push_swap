@@ -6,11 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 16:03:14 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 23:37:51 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/22 17:36:15 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+#include "libft.h"
 
 void	init_stack(int argc, char **argv, t_stack *stack)
 {

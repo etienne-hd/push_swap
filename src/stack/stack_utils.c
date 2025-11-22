@@ -6,11 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:14:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/30 00:17:08 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/22 17:36:34 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+#include <stddef.h>
 
 int	stack_check_duplicate(t_stack *stack)
 {
